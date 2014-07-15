@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{{title}}</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+<meta name="description" content="Uptime and performance statistics for {{domain}}.">
+
+<!--[if IE]><script src="assets/js/excanvas.min.js"></script><![endif]-->
+
+</head>
+
+<body>
+
+<div id="page">
+	<div id="header">
+        <h1>{{title}}</h1>
+        <h2>Uptime Statistics</h2>
+        
+        <div id="periodDropDown">
+        
+        	<span class="left"></span>
+            <span class="currentPeriod">Last 24 hours</span>
+            <span class="arrow"></span>
+            <span class="right"></span>
+            
+        	<ul>
+            	<li data-action="24hours">Last 24 hours</li>
+                <li data-action="7days">Last 7 Days</li>
+                <li data-action="30days">Last 30 Days</li>
+            </ul>
+        </div>
+	</div>
+
+	<div class="performance section">
+    	<h3>Performance</h3>
+       	<div id="plot">
+        	<span class="preloader"></span>
+        </div>
+    </div>
+    
+    <div class="downtime section">
+    	<h3>Downtime</h3>
+        <div class="content">
+        	<div id="downtimeData"></div>
+            <div id="noDowntime">Yey! There was no downtime in the selected period!</div>
+        </div>
+    </div>
+    
+</div>
+
+<p id="footer">
+	{{year}} &copy; {{title}}. Powered by <a href="http://tutorialzine.com/2011/01/google-appengine-series/">Tutorialzine</a>
+</p>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/jquery.flot.min.js"></script>
+
+</body>
+</html>

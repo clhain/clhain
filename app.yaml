@@ -1,0 +1,28 @@
+application: clhain
+version: 1
+runtime: python
+api_version: 1
+
+builtins:
+- datastore_admin: on
+- remote_api: on
+
+handlers:
+
+- url: /assets
+  static_dir: assets
+  
+- url: /favicon.ico
+  static_files: assets/img/favicon.ico
+  upload: assets/img/favicon.ico
+
+- url: /crons/.*
+  script: main.py
+  login: admin
+
+- url: /generate-test-data/
+  script: main.py
+  login: admin
+  
+- url: .*
+  script: main.py
