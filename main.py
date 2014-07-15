@@ -12,18 +12,14 @@ from google.appengine.ext.webapp import util
 # of your application with controller classes.
 # If a URL is requested that is not listed here,
 # a 404 error is displayed.
+import webapp2
+from controllers import mainh,storage
 
 def main():
-	application = webapp.WSGIApplication([
-		('/', mainh.MainHandler),
-		('/crons/5min/', crons.FiveMinHandler),
-		('/crons/1day/', crons.OncePerDayHandler),
-		('/ajax/24hours/', ajax.TwentyFourHours),
-		('/ajax/7days/', ajax.SevenDays),
-		('/ajax/30days/', ajax.ThirtyDays),
-		('/generate-test-data/', generate.GenerateTestData)
-	],debug=True)
-	util.run_wsgi_app(application)
+  app = webapp2.WSGIApplication([
+                                ('/', interface.Overview),
+                                ('/api/datastore',storage.StoreHandler)
+                                ],debug=True)
 
 
 if __name__ == '__main__':

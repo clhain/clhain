@@ -12,17 +12,24 @@ handlers:
 - url: /assets
   static_dir: assets
   
+- url: /api/
+  script: main.app
 - url: /favicon.ico
   static_files: assets/img/favicon.ico
   upload: assets/img/favicon.ico
 
 - url: /crons/.*
-  script: main.py
+  script: main.app
   login: admin
 
 - url: /generate-test-data/
-  script: main.py
+  script: main.app
   login: admin
   
 - url: .*
-  script: main.py
+  script: main.app
+  login: required
+
+libraries:
+- name: webapp2
+  version: "2.5.1"
